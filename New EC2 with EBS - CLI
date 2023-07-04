@@ -1,0 +1,24 @@
+#pip install boto3
+
+import boto3
+
+ec2 = boto3.client("ec2")
+instances = ec2.run_instances(
+        ImageId = "ami-0b9ecf71fe947bbdd",
+        MinCount=1,
+        MaxCount=1,
+        InstanceType="t2.micro",
+        SecurityGroupIds=["sg-08df27de4d97d801f"]
+    )
+
+volume = ec2.create_volume(
+    AvailabilityZone="ap-south-1a",
+    Size = 3
+)
+
+
+attach = ec2.attach_volume(
+    Device = '/dev/sdh',
+    InstanceId = 'i-02dc5b8a136e94876',
+    VolumeId = 'vol-07c0999095da4634d'
+)
