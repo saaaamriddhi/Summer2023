@@ -1,0 +1,6 @@
+import pywhatkit 
+
+pywhatkit.sendwhatmsg("[reciever_phone]",
+                        "Hello from Python",
+                        11, 28)
+print("Successfully Sent!")
