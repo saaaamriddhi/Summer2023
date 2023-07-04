@@ -1,0 +1,9 @@
+#pip install boto3
+
+import boto3
+
+#accessing SNS and including access credentials
+sns = boto3.client('sns',
+                   'ap-south-1',
+                   aws_access_key_id='',
+                   aws_secret_access_key='')
