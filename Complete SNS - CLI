@@ -1,0 +1,19 @@
+#pip install boto3
+
+import boto3
+sns = boto3.client('sns')
+
+topic = sns.create_topic(Name = 'myTopic1')
+
+subscription = sns.subscribe(
+               TopicArn='arn:aws:sns:ap-south-1:652082687830:myTopic1',
+               Protocol='email',
+               Endpoint='paliwalsamriddhi@gmail.com'
+               )
+
+sns.publish(
+    TopicArn = 'arn:aws:sns:ap-south-1:652082687830:myTopic1',
+    Subject = "Test Subject",
+    Message = "Hello from boto3..."
+
+)
