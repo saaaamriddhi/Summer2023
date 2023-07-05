@@ -1,0 +1,23 @@
+#Inheritance
+
+class visitorForm:
+    n = None
+    p = None
+    
+    def __init__(self, name, phone):
+        self.n = name
+        self.p = phone
+   
+class jobForm(visitorForm):
+    e = None
+    
+    def __init__(self, name, phone, experience):
+        super().__init__(name, phone)
+        self.e = experience
+        
+class courseForm(visitorForm): 
+    c = None
+    
+    def __init__(self, name, phone, course):
+        super().__init__(name, phone)
+        self.c = course
