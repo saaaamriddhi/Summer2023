@@ -1,0 +1,18 @@
+// sudo yum install https -y
+// systemctl start httpd
+// cd /var/www/cgi-bin/
+// vim file.py
+
+#!/usr/bin/python3
+
+import subprocess
+
+print("Content-Type: text/html")
+
+print()
+
+print("<h1>This was today's date</h1>")
+x=subprocess.getoutput("date")
+print(x)
+
+//Access the web page at publicIP/cgi-bin/file.py
