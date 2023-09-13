@@ -1,0 +1,41 @@
+#pip install matplotlib
+#pip install numpy
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the dimensions of the canvas
+width, height = 30, 30
+
+# Create an empty canvas filled with zeros
+canvas = np.zeros((height, width), dtype=int)
+
+# Create the pixelated heart shape
+heart = [
+    "0000990000990000",
+    "0009669009669000",
+    "0096166996666900",
+    "0961666666666690",
+    "0966666666666690",
+    "0096666666666900",
+    "0009666666669000",
+    "0000966666690000",
+    "0000096666900000",
+    "0000009669000000",
+    "0000000990000000",
+]
+
+# Convert the heart shape into a NumPy array
+heart_array = np.array([[int(pixel) for pixel in row] for row in heart])
+
+# Calculate the position to place the heart in the center of the canvas
+x_offset = (width - len(heart[0])) // 2
+y_offset = (height - len(heart)) // 2
+
+# Place the heart shape on the canvas
+canvas[y_offset:y_offset+len(heart), x_offset:x_offset+len(heart[0])] = heart_array
+
+# Plot the pixelated heart shape with bright red color
+plt.imshow(canvas, cmap='Reds', interpolation='nearest')
+plt.axis('off')
+plt.show()
